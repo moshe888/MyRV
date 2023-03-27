@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "243742147557",
+    "project_id": "rabies-ca111",
+    "storage_bucket": "rabies-ca111.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:243742147557:android:7d8a562d8d29dd3de8250c",
+        "android_client_info": {
+          "package_name": "moshe.rab.rabies"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "243742147557-p2qrscpf54l49kl4v2fh5na6fl597kih.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3pJhzb9FhqfI0WG_p09jE6gP6F8NPcVc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "243742147557-p2qrscpf54l49kl4v2fh5na6fl597kih.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
