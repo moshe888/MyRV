@@ -36,9 +36,8 @@ public class AddRabiViewModel extends ViewModel {
             fileRef.putFile(uri).addOnSuccessListener(taskSnapshot -> fileRef.getDownloadUrl().addOnSuccessListener(url -> {
                 String modelId = root.push().getKey();
                 Rabi rabi = new Rabi(modelId, name, url.toString(), description);
-                assert modelId != null;
-                root.child(modelId).setValue(rabi.toMap());
-                Toast.makeText(fragment.getActivity(), "The post uploaded", Toast.LENGTH_SHORT).show();
+                 root.child(modelId).setValue(rabi.toMap());
+                Toast.makeText(fragment.getActivity(), "The rabi post uploaded", Toast.LENGTH_SHORT).show();
                 fragment.getActivity().getSupportFragmentManager().beginTransaction()
                         .replace(R.id.container, MainFragment.newInstance())
                         .commitNow();

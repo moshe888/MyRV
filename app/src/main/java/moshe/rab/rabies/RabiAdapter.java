@@ -3,7 +3,9 @@ package moshe.rab.rabies;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -24,8 +27,10 @@ public class RabiAdapter extends RecyclerView.Adapter<RabiAdapter.MiniRabiHolder
 
     public ArrayList<Rabi> mList;
     private final Context context;
+    private final Activity activity;
 
-    public RabiAdapter(Context context, ArrayList<Rabi> mList) {
+    public RabiAdapter(Activity activity,Context context, ArrayList<Rabi> mList) {
+        this.activity = activity;
         this.context = context;
         this.mList = mList;
     }
@@ -43,8 +48,24 @@ public class RabiAdapter extends RecyclerView.Adapter<RabiAdapter.MiniRabiHolder
 
         if (!mList.get(position).getUrl().isEmpty())
             Glide.with(context).load(mList.get(position).getUrl()).into(holder.ivImage);
+
         holder.tvName.setText(String.valueOf(mList.get(position).getName()));
-        holder.tvDescription.setText(String.valueOf(mList.get(position).getDescription()));
+        holder.tvDescription.setText("...");
+        holder.tvDescription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder d = new AlertDialog.Builder(activity);
+                d.setTitle("Description");
+                d.setMessage(String.valueOf(mList.get(position).getDescription()));
+                d.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                d.show();
+            }
+        });
     }
 
     @Override

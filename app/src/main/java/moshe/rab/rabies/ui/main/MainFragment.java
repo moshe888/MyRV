@@ -81,7 +81,7 @@ public class MainFragment extends Fragment {
                     Rabi temp = new Rabi((HashMap<String, Object>) dataSnapshot.getValue());
                     rabiArrayList.add(temp);
                 }
-                rabiAdapter = new RabiAdapter(getContext(),rabiArrayList);
+                rabiAdapter = new RabiAdapter(getActivity(),getContext(),rabiArrayList);
                 rvRabies.setHasFixedSize(false);
                 rvRabies.setLayoutManager(new LinearLayoutManager(getContext()));
                 rvRabies.setAdapter(rabiAdapter);
